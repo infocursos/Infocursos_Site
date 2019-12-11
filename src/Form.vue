@@ -1,25 +1,27 @@
 <template>
   <div id="form">
-    <form id="formulario" @submit="validar">
+    <form id="formulario" @submit.prevent="validar">
+      <div id="alerta" :class="erro" v-if="erro">{{mensagem}}</div>
+
       <label> Campus: </label>
       <!--<vSelect class="vSelect" :options="options.campi" @input="(event)=>{dado.campus=event}" />-->
-      <Multiselect v-model="dado.campus" :options="options.campi" :show-labels="false"></Multiselect>
+      <Multiselect placeholder=" " v-model="dado.campus" :options="options.campi" :show-labels="false"></Multiselect>
 
       <label> Curso: </label>
       <!--<vSelect class="vSelect" :options="options.cursos" @input="(event)=>{dado.curso=event}" />-->
-      <Multiselect v-model="dado.curso" :options="options.cursos" :show-labels="false"></Multiselect>
+      <Multiselect placeholder=" " v-model="dado.curso" :options="options.cursos" :show-labels="false"></Multiselect>
 
       <label> Turno: </label>
       <!--<vSelect class="vSelect" :options="options.turnos" @input="(event)=>{dado.turno=event}" />-->
-      <Multiselect v-model="dado.turno" :options="options.turnos" :show-labels="false"></Multiselect>
+      <Multiselect placeholder=" " v-model="dado.turno" :options="options.turnos" :show-labels="false"></Multiselect>
 
       <label> Ano: </label>
       <!--<vSelect class="vSelect" :options="options.anos" @input="(event)=>{dado.ano=event}" />-->
-      <Multiselect v-model="dado.ano" :options="options.anos" :show-labels="false"></Multiselect>
+      <Multiselect placeholder=" " v-model="dado.ano" :options="options.anos" :show-labels="false"></Multiselect>
 
 
       <input type="submit" class="btn btn-success" value="Pesquisar"> 
-      <button class="btn btn-primary" >Limpar dados</button>
+      <button class="btn btn-primary" @click="limparDados">Limpar dados</button>
 
     </form>
 
@@ -60,7 +62,10 @@ beforeUpdate(){
         'cursos': null,
         'turnos': null,
         'anos': null
-        }
+        },
+
+      erro: '',
+      mensagem: ''
     }
   },
 
@@ -68,7 +73,21 @@ beforeUpdate(){
   methods: {
 
     validar: function(e){
-      e.preventDefault()
+      self.console.log(e)
+
+      if(!(this.dado.campus && this.dado.curso && this.dado.turno && this.dado.ano)){
+        // avisar que todos os dados precisam estar preenchidos
+        this.setErro('Alerta: Preencha todos os campos.');
+      }
+      else{
+        this.setErro();
+      }
+      
+    },
+
+    setErro: function(mensagem){
+      mensagem ? this.erro="alert alert-danger" : this.erro='';
+      this.mensagem = mensagem;
     },
 
     limparDados: function(){
@@ -122,10 +141,6 @@ beforeUpdate(){
   margin-top: 15px; 
 }
 
-/** Classe do 'select' */
-.multiselect{
-  height: 42px;
-}
 
 /** Classe do dropdown */
 .multiselect__content-wrapper{
@@ -143,6 +158,10 @@ beforeUpdate(){
 .multiselect__option--selected.multiselect__option--highlight{
   background-color: rgba(242, 242, 242, 0.5);
   color: #333;
+}
+
+#alerta{
+  margin-top: 15px;
 }
 
 </style>
