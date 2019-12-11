@@ -186,11 +186,7 @@ section li {
     padding-top:5px; 
 }
 
-#pesquisa #form .legenda{
-    font-weight: 700;
-    line-height: 20px;
-    margin-top: 15px;
-}
+
 
 #pesquisa #input{
     margin-bottom: 15px;
@@ -200,7 +196,7 @@ section li {
     margin: 0px;
 }
 
-#pesquisa button{
+#pesquisa button, input{
     margin-top: 10px;
     margin-left: 0px;
     margin-right: 5px;
