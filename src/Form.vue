@@ -1,27 +1,23 @@
 <template>
   <div id="form">
     <form id="formulario" @submit.prevent="validar">
-      <div id="alerta" :class="erro" v-if="erro">{{mensagem}}</div>
+      <div id="alerta" class="alert alert-danger" v-if="erro">{{mensagem}}</div>
 
       <label> Campus: </label>
-      <!--<vSelect class="vSelect" :options="options.campi" @input="(event)=>{dado.campus=event}" />-->
       <Multiselect placeholder=" " v-model="dado.campus" :options="options.campi" :show-labels="false"></Multiselect>
 
       <label> Curso: </label>
-      <!--<vSelect class="vSelect" :options="options.cursos" @input="(event)=>{dado.curso=event}" />-->
       <Multiselect placeholder=" " v-model="dado.curso" :options="options.cursos" :show-labels="false"></Multiselect>
 
       <label> Turno: </label>
-      <!--<vSelect class="vSelect" :options="options.turnos" @input="(event)=>{dado.turno=event}" />-->
       <Multiselect placeholder=" " v-model="dado.turno" :options="options.turnos" :show-labels="false"></Multiselect>
 
       <label> Ano: </label>
-      <!--<vSelect class="vSelect" :options="options.anos" @input="(event)=>{dado.ano=event}" />-->
       <Multiselect placeholder=" " v-model="dado.ano" :options="options.anos" :show-labels="false"></Multiselect>
 
 
       <input type="submit" class="btn btn-success" value="Pesquisar"> 
-      <button class="btn btn-primary" @click="limparDados">Limpar dados</button>
+      <div class="btn btn-primary" @click="limparDados">Limpar dados</div>
 
     </form>
 
@@ -29,9 +25,6 @@
 </template>
 
 <script>
-//import vSelect from 'vue-select';
-//import 'vue-select/dist/vue-select.css';
-
 import Multiselect from 'vue-multiselect';
 
 import jason from './assets/relacaoDeCursos.json';
@@ -64,7 +57,7 @@ beforeUpdate(){
         'anos': null
         },
 
-      erro: '',
+      erro: false,
       mensagem: ''
     }
   },
@@ -86,12 +79,13 @@ beforeUpdate(){
     },
 
     setErro: function(mensagem){
-      mensagem ? this.erro="alert alert-danger" : this.erro='';
+      mensagem ? this.erro=true : this.erro=false;
       this.mensagem = mensagem;
     },
 
     limparDados: function(){
-      this.dado = {campus: '', curso: '', turno: '', ano: ''}
+      this.dado = {campus: '', curso: '', turno: '', ano: ''};
+      this.setErro();
     },
 
     removeCopia: function(arr){

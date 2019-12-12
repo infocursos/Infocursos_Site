@@ -196,7 +196,7 @@ section li {
     margin: 0px;
 }
 
-#pesquisa button, input{
+#pesquisa button, input, .btn{
     margin-top: 10px;
     margin-left: 0px;
     margin-right: 5px;
