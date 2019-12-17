@@ -74,6 +74,7 @@ beforeUpdate(){
       }
       else{
         this.setErro();
+        this.$emit('testeEvento', {dados: this.dado})
       }
       
     },
