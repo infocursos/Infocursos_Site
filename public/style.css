@@ -203,7 +203,7 @@ section li {
 }
 
 #planilhas{
-    display: initial;
+    grid-area: planilha;
 }
 
 

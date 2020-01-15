@@ -27,6 +27,7 @@
 <script>
 import Multiselect from 'vue-multiselect';
 
+import { eventBus } from './main.js'
 import jason from './assets/relacaoDeCursos.json';
 
 
@@ -38,7 +39,8 @@ export default {
 
   created() {
     this.options = this.atualizaLista();
-
+    eventBus.$emit('aaa', 'bbb');
+    
 },
 
 beforeUpdate(){
@@ -65,18 +67,28 @@ beforeUpdate(){
 
   methods: {
 
-    validar: function(e){
-      self.console.log(e)
-
+    validar: function(){
+      
       if(!(this.dado.campus && this.dado.curso && this.dado.turno && this.dado.ano)){
         // avisar que todos os dados precisam estar preenchidos
         this.setErro('Alerta: Preencha todos os campos.');
       }
       else{
         this.setErro();
-        this.$emit('testeEvento', {dados: this.dado})
+        //const a = this;
+        eventBus.$emit('aaa', 'bbb')//a.procurandoNemo().Cod )
       }
       
+    },
+
+    procurandoNemo: function(lista=this.lista, dado=this.dado){
+      let teste = lista.find(function(e){
+        return e.Campus==dado.campus && e.Curso==dado.curso && e.Turno==dado.turno && e.Ano==dado.ano;
+      });
+
+      self.console.log(teste, 'nemo');
+
+      return teste;
     },
 
     setErro: function(mensagem){
