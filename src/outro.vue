@@ -1,8 +1,8 @@
 <template>
   <div id="planilhas" class="center">
-      <h3 id="titulo"> {{getCod}} - {{curso}} / {{campus}}</h3>
+      <h3 id="titulo"> {{ getTitulo }}</h3>
       <div id="dados">
-        <card class="card" v-for="itens in labels" :key="itens.id" :titulo="itens.nome" :grafTipo="itens.sigla" :grafCurso="'122'" />
+        <card class="card" v-for="itens in labels" :key="itens.id" :titulo="itens.nome" :grafTipo="itens.sigla" :grafCurso="String(getCod)" />
       </div>
   </div>
 </template>
@@ -16,12 +16,10 @@ components:{
     card
 },
 
+
+
 data(){
     return {
-        curso: 'ENGENHARIA DE COMPUTAÇÃO',
-        campus: 'VÁRZEA GRANDE',
-
-
         labels: [
             { nome: 'Distribuição das Idades - Alunos Ingressantes',             sigla: 'BIN' },
             { nome: 'Distribuição das Idades - Alunos Matriculados',             sigla: 'BIM' },
@@ -38,7 +36,9 @@ data(){
 computed: {
     getCod(){
         return this.$store.getters.getInfo.cod
-        
+    },
+    getTitulo(){
+        return this.$store.getters.getInfo.titulo
     }
 }
 }
