@@ -1,6 +1,6 @@
 <template>
   <div id="planilhas" class="center">
-      <h3 id="titulo"> {{cod}} {{curso}} / {{campus}}</h3>
+      <h3 id="titulo"> {{getCod}} - {{curso}} / {{campus}}</h3>
       <div id="dados">
         <card class="card" v-for="itens in labels" :key="itens.id" :titulo="itens.nome" :grafTipo="itens.sigla" :grafCurso="'122'" />
       </div>
@@ -9,7 +9,6 @@
 
 <script>
 import card from './assets/card';
-import { eventBus } from './main.js';
 
 export default {
 name: 'outro',
@@ -17,15 +16,6 @@ components:{
     card
 },
 
-mounted(){
-    
-    self.p = eventBus.$on('aaa', function(e){this.cod = e});
-    self.console.log(this.cod, self.p, 'foi?')
-},
-
-beforeDestroy(){
-    eventBus.$off('aaa');
-},
 data(){
     return {
         curso: 'ENGENHARIA DE COMPUTAÇÃO',
@@ -42,8 +32,13 @@ data(){
             { nome: 'Nota de Corte no SISU por Tipo de Vaga',                    sigla: 'SIS' }
         ],
 
-        cod: 0
 
+    }
+},
+computed: {
+    getCod(){
+        return this.$store.getters.getInfo.cod
+        
     }
 }
 }

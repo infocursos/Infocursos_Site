@@ -1,16 +1,18 @@
 import Vue from 'vue';
+import Vuex from 'vuex';
 import Form from './Form.vue'
 //import Teste from './Teste.vue'
 import Outro from './outro.vue'
 
-Vue.config.productionTip = false
+import { store } from './vuex'
 
-export const eventBus = new Vue();
+Vue.config.productionTip = false
+Vue.use(Vuex);
 
 new Vue({
-  render: h => h(Form),
+  render: h => h(Form),store
 }).$mount('#form')
 
 new Vue({
-  render: h => h(Outro),
+  render: h => h(Outro),store
 }).$mount('#planilhas')

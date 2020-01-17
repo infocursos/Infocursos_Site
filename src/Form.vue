@@ -27,7 +27,6 @@
 <script>
 import Multiselect from 'vue-multiselect';
 
-import { eventBus } from './main.js'
 import jason from './assets/relacaoDeCursos.json';
 
 
@@ -39,7 +38,6 @@ export default {
 
   created() {
     this.options = this.atualizaLista();
-    eventBus.$emit('aaa', 'bbb');
     
 },
 
@@ -76,7 +74,10 @@ beforeUpdate(){
       else{
         this.setErro();
         //const a = this;
-        eventBus.$emit('aaa', 'bbb')//a.procurandoNemo().Cod )
+        this.$store.commit('setInfo', { cod: this.procurandoNemo().Cod,
+                                  ano: this.dado.ano,
+                                  titulo: this.dado.curso+' - '+this.dado.campus+' - '+this.dado.ano
+          })
       }
       
     },
@@ -85,8 +86,6 @@ beforeUpdate(){
       let teste = lista.find(function(e){
         return e.Campus==dado.campus && e.Curso==dado.curso && e.Turno==dado.turno && e.Ano==dado.ano;
       });
-
-      self.console.log(teste, 'nemo');
 
       return teste;
     },

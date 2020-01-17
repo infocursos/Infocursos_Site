@@ -1,5 +1,5 @@
 <template>
-<div v-on="$testeEvento">{{msg}}</div>
+<div>{{msg}}</div>
   
 </template>
 
