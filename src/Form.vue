@@ -73,11 +73,7 @@ beforeUpdate(){
       }
       else{
         this.setErro();
-        //const a = this;
-        this.$store.commit('setInfo', { cod: this.procurandoNemo().Cod,
-                                  ano: this.dado.ano,
-                                  titulo: this.dado.curso+' - '+this.dado.campus+' - '+this.dado.ano
-          })
+        this.$store.commit('setInfo', {cod: this.procurandoNemo().Cod, ...this.dado} )
       }
       
     },

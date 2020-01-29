@@ -5,16 +5,16 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        cod: 122,
-        ano: 2017,
-        titulo: 'curso'
+        cod: null,
+        ano: null,
+        titulo: null
     },
 
     mutations: {
-        setInfo(state, payload) {
-            state.cod    = payload.cod;
-            state.ano    = payload.ano;
-            state.titulo = payload.titulo;  
+        setInfo(state, payload) {                   
+            state.cod    = String( payload.cod );
+            state.ano    = String( payload.ano );
+            state.titulo = payload.curso + ' - ' + payload.campus + ' - ' + payload.ano;
         }
     },
 

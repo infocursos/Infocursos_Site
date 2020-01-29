@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import Form from './Form.vue'
-//import Teste from './Teste.vue'
-import Outro from './outro.vue'
+
+import Form from './Form.vue';
+import Info from './Info.vue';
 
 import { store } from './vuex'
 
@@ -14,5 +14,5 @@ new Vue({
 }).$mount('#form')
 
 new Vue({
-  render: h => h(Outro),store
+  render: h => h(Info),store
 }).$mount('#planilhas')
