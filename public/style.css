@@ -1,134 +1,104 @@
 body{
     background-image: url(img/bg_body.png);
     background-repeat: repeat-x;
-    margin: 0px;
-    width: 100%;
-
-}
-
-#corpo{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas: "head head head head" "nav nav nav nav" "oi section pesquisa tchau" "planilha planilha planilha planilha" "footer footer footer footer";
-    align-content: center;
-    
-
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 500;
-}
-
-#head-align {
-	clear: both;
-	height: 185px;
-	width: auto;
-	border-top-width: 1px;
-	border-top-style: solid;
-	border-top-color: #999;
-}
-
-#head {
-	max-width: 970px;
-	clear: both;
-	height: 185px;
-	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
-}
-#head.h2 {
-	font-family: sans-serif;
-}
-
-#logo {
-	float: left;
-	height: 155px;
-	min-width: 430px;
-	margin-top: 20px;
-}
-#logo span {
-	display: block;
-	margin-top: 40px;
-}
-#logo h2 {
-	margin-top: 4px;
-	margin-bottom: 8px;
-	font-size: 34px;
+    display: grid;
+    grid-template: "ahead" "head" "nav" "section" "pesquisa" "planilha" "footer";
+    align-content: center;
+    
+    
 }
 
 
-
-#logo .logomg {
-	float: left;
-	height: 145px;
-	width: 146px;
-	margin-right: 10px;
-}
 header{
-    grid-area: head
+    grid-area: head;
+    display: inline-flex;
+    height: 185px;
+    margin: 0 auto;
+
 }
 
+header img{
+    max-width: 146px;
+    max-height: 145px;
+    display: inline-block;
+    margin: auto 0;
+}
+#head-texto{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    white-space: nowrap;
+}
+
+#head-texto h3{
+    font-size: 0.875em;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+#head-texto h1{
+    font-size: 2.125em;
+    margin-top: 0;
+    margin-left: 0;
+}
 
 
 #menu{
     grid-area: nav;
     
-    clear: both;
-	height: 40px;
-	width: 910px;
-	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
-	background: #010033; /* Old browsers */
-	background: -moz-linear-gradient(top,  #010033 1%, #011e51 50%, #00396e 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#010033), color-stop(50%,#011e51), color-stop(100%,#00396e)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #010033 1%,#011e51 50%,#00396e 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #010033 1%,#011e51 50%,#00396e 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #010033 1%,#011e51 50%,#00396e 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #010033 1%,#011e51 50%,#00396e 100%); /* W3C */
-
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#010033', endColorstr='#00396e',GradientType=0 ); /* IE6-9 */
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
+    height: 40px;
+    width: 90%;
+	max-width: 955px;
+    margin: 0 auto;
     
-    float: left;
-	color: #FFF;
+	background: #010033; /* Old browsers */
+    background: linear-gradient(#010033, #011e51, #00396e);
+    border-radius: 4px;
+
+    white-space: nowrap;
+    overflow: scroll;
+
+    /* tornando a scrollbar invisível no Firefox */
+    scrollbar-width: none; /* Newer Firefox */
+    overflow: -moz-scrollbars-none; /* Older Firefox*/
+}
+
+/* tornando a scrollbar invisível em outros navegadores */
+nav::-webkit-scrollbar{
+display: none;
 }
 
 #menu ul{
-    float: left;
-	margin-top: 8px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: -20px;
+    margin: 10px 0;
+    padding-left: 20px;
 }
 
 #menu li {
-    display: inline-block;
+    display: inline;
 	font-size: 12px;
-    margin-right: 12px;
+    margin: 0 6px 0 6px;
 }
 
 #menu a{
-    color: #FFF;
+    color: white;
+    padding: 4px 4px 3px 4px
 }
+#menu a:focus, #menu a:hover {
+    color: #010033; /*por algum motivo a barra do governo muda isso*/
+    background-color: white;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
 
 section{
+    display: none;
     grid-area: section;
-    float:left;
-	width: 490px;
-	margin-top: 30px;
-	margin-left: 25px;
+    width: 85%;
+    margin: 0 auto;
     text-align: justify; 
-    padding-left: 20px;  
-    margin-right: 20px; 
-}
-
-section p{
-    line-height: 1.42857143;
-    color: #333;
-    font-size: 14px
 }
 
 section h2{
@@ -137,39 +107,45 @@ section h2{
     font-size: 30px;
 }
 
-section ul{
+section p{
+    display: block;
+    line-height: 1.42857143;
+    color: #333;
+    font-size: 14px
+}
+
+section p ul{
     float: left;
+    display: block;
 	margin-left: -20px;
-	width: 470px;
+	width: 90%;
 	margin-top: 0px;
 }
-section li {
+
+section p li {
 	font-size: 12px;
 	color: #333;
 	margin-bottom: 10px;
 	text-align: justify;
 }
 
+
+
 #pesquisa{
     grid-area: pesquisa;
-    width: 400px;
-    margin-top: 30px;
+    width: 85%;
+    margin: 30px auto 0 auto;
     font-size: 14px;
-    padding-right: 20px;
-    margin-left: 20px;
 }
 
-#pesquisa h2{
-    
+#pesquisa h2{ 
     align-self: left;
-    
 	background-position: right center;
 	padding-right: 25px;
 	background-repeat: no-repeat;
     font-size: 22px;
     font-weight: 500;
     color: #002E63;
-    
 }
 
 #pesquisa h2 span{
@@ -181,12 +157,9 @@ section li {
 #pesquisa #form{
     background-color: rgb(242, 242, 242);
     margin-top: 15px;
-    margin-right: 20px;
     padding: 25px;
     padding-top:5px; 
 }
-
-
 
 #pesquisa #input{
     margin-bottom: 15px;
@@ -209,28 +182,25 @@ section li {
 
 footer{
     grid-area: footer;
+
     background-image: url(img/bg_ext_rodape.jpg);
     text-align: center;
     height: 135px;
-		background-position: 0 -10px;
-			background-position-x: 0px;
-			background-position-y: -10px;
-		background-repeat: repeat-x;
-			background-repeat-x: repeat;
-            background-repeat-y: no-repeat;
-            
+    background-position: 0 -10px;
+    background-position-x: 0px;
+    background-position-y: 10px;
+    background-repeat: repeat-x;
+ 
 
-            
-            
 }
 
 footer div{
     background-color: #F1F1F1;
-            clear: both;
-            height: 112px;
-            width: 100%;
-            background-image: url(img/footerbg.jpg);
-            background-repeat: repeat-x;
+    clear: both;
+    height: 112px;
+    width: 100%;
+    background-image: url(img/footerbg.jpg);
+    background-repeat: repeat-x;
 }
 
 footer div p{
@@ -239,34 +209,56 @@ footer div p{
 }
 
 footer img{
-    margin: 0 auto;
+    margin: 20px auto 0 auto;
     width: 100%;
     max-width: 972px;
 }
 
 
-@media (max-width: 965px){
-    #corpo{
-        grid-template-areas: "head head head head" "nav nav nav nav" "section section section section" "pesquisa pesquisa pesquisa pesquisa" "planilha planilha planilha planilha" "footer footer footer footer";
+@media (min-width: 965px){
+    body{
+        grid-template: "barra barra" "head head" "nav nav" "section pesquisa" "planilha planilha" "footer footer";
     }
 
-    #menu{
-        width: 90vw;
+    #isola-barra{
+        grid-area: barra;
+        margin: 0;
+    }
+
+    header{
+        max-width: 955px;
+    }
+
+    #head-texto{
+        width: 955px;
+    }
+
+    #head-texto h3{
+        text-align: left;
+        font-size: 14px;
+    }
+
+    #head-texto h1{
+        text-align: left;
+        font-size: 34px;
     }
 
     section{
-        width: 88vw;
+        display:initial;
+        width: 490px;
+        margin: 30px 20px 0px auto;
+        float: right;
+    }
+
+    #pesquisa{
+        width: 400px;
+        margin:30px 0px 0px 20px;
+        float: left;
+    }
+
+    #planilhas{
+        width: 90%;
         margin: 0 auto;
-        padding: 1rem;
-        display: none;
-    }
-
-    section ul{
-        display: inline-block
-    }
-
-    section p{
-        display: inline-block;
     }
 
 }

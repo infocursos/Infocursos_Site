@@ -52,35 +52,32 @@ export default {
 
 <style>
 h3 {
-        text-align: center;
-        font-size: 30px;
-        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-        margin-top: 1em;
-        margin-bottom: 1em
-    }
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 30px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    margin-top: 1em;
+    margin-bottom: 1em
+}
 
     
 
-    #dados{
-        
+#dados{
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
 
-        width: 90vw;
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 auto;
-        
-        
-    }
+.card{
+    flex: 1 1 500px;
+    margin: 10px;    
+    align-self: stretch;
+    margin: 10px auto
+}
 
-    .card{
-        flex: 1 1 500px;
-        margin: 10px;
-        
-        align-self: stretch;
-        margin: 10px auto
-    }
-
-    .center{
-        margin: 0 auto
-    }   
+.center{
+    margin: 0 auto
+}   
 </style>

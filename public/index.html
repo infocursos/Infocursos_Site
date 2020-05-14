@@ -11,35 +11,27 @@
 </head>
 <body>
     <!--BARRA BRASIL-->
-    <div id="barra-brasil" style="background:#7F7F7F; height: 20px; padding:0 0 0 10px;display:block;">
-        <ul id="menu-barra-temp" style="list-style:none;">
-          <li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED">
-              <a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do Governo Brasileiro</a>
-          </li>
-          <li>
-             <a style="font-family:sans,sans-serif; text-decoration:none; color:white;" href="http://epwg.governoeletronico.gov.br/barra/atualize.html">Atualize sua Barra de Governo</a>
-          </li>
-        </ul>
-      </div>
+    <div id="isola-barra">
+        <div id="barra-brasil" style="background:#7F7F7F; height: 20px; padding:0 0 0 10px;display:block;">
+            <ul id="menu-barra-temp" style="list-style:none;">
+              <li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED">
+                  <a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do Governo Brasileiro</a>
+              </li>
+              <li>
+                 <a style="font-family:sans,sans-serif; text-decoration:none; color:white;" href="http://epwg.governoeletronico.gov.br/barra/atualize.html">Atualize sua Barra de Governo</a>
+              </li>
+            </ul>
+          </div>
+    </div>
 
     <!--CORPO DO SITE-->
-    <div id="corpo">
-        <!--<header>
+    
+        <header>
             <img src="img/ufmt_logo.png" alt="logo da UFMT" id="img-logo">
-            <h3>Universidade Federal de Mato Grosso</h3>
-            <h1>INFOCURSOS</h1>
-        </header>-->
-
-        <header id="head-align">
-            <header id="head">
-                <div id="logo">
-                    <div class="logomg">
-                        <img src="img/ufmt_logo.png" width="146" height="145">
-                    </div>
-                    <span>Universidade Federal de Mato Grosso</span>
-                    <h2>INFOCURSOS</h2>
-                </div>
-            </header>
+            <div id="head-texto">
+                <h3>Universidade Federal de Mato Grosso</h3>
+                <h1>INFOCURSOS</h1>
+            </div>
         </header>
 
         <nav id="menu">
@@ -47,20 +39,21 @@
                 <li><a href="https://www.ufmt.br/ufmt/site/"> <i class="glyphicon glyphicon-home"></i> Portal da UFMT </a></li>
                 <li><a href="#" id="sobreNav"> <i class="glyphicon glyphicon-question-sign"></i> Sobre o Infocursos</a></li>
                 <li><a href="#" id="metodologiaNav"> <i class="glyphicon glyphicon-info-sign"></i> Metodologia</a></li>
+
             </ul>
         </nav>
 
         <section id="sobre">
             <h2>Infocursos</h2>
-            <p>Diante da importância da estatística em auxiliar na tomada de decisões e o papel da UFMT perante a sociedade, foi criado o <strong>Infocursos</strong>, uma plataforma online que visa divulgar indicadores estatísticos dos cursos presenciais de graduação da UFMT.</p>
-            <p> As informações disponíveis são:</p>
+            <p>Diante da importância da estatística em auxiliar na tomada de decisões e o papel da UFMT perante a sociedade, foi criado o <strong>Infocursos</strong>, uma plataforma online que visa divulgar indicadores estatísticos dos cursos presenciais de graduação da UFMT.<br>
+               <br> As informações disponíveis são:
             <ul id="lista-info">
                 <li>&nbsp;Percentual de Ingressantes por idade e sexo; </li>
                 <li>&nbsp;Percentual de Matriculados por idade e sexo; </li>
                 <li>&nbsp;Nota de corte por tipo de vaga;</li>
                 <li>&nbsp;Percentual de alunos por Tipo de ingresso.</li>
             </ul>
-            <p>Esta iniciativa surgiu da necessidade de tornar as informações de cursos mais acessíveis à sociedade. O projeto de extensão foi desenvolvido pelo curso de estatística em parceria com a Pró-reitoria de Planejamento e a Secretaria de Tecnologia da Informação.</p>    
+           Esta iniciativa surgiu da necessidade de tornar as informações de cursos mais acessíveis à sociedade. O projeto de extensão foi desenvolvido pelo curso de estatística em parceria com a Pró-reitoria de Planejamento e a Secretaria de Tecnologia da Informação.</p>    
         </section>
         <section id="metodologia" style="display: none">
                 <h2>Metodologia</h2><br>
@@ -89,9 +82,8 @@
             </div>
         </footer>
 
-    </div> <!--CORPO-->
+     <!--CORPO-->
 
     <!--SCRIPT PARA O FUNCIONAMENTO DA BARRA BRASIL-->
         <script src="js/aba.js"></script>
-        <script defer="defer" src="//barra.brasil.gov.br/barra.js" type="text/javascript"></script></body>
-</html>
+        <script defer="defer" src="//barra.brasil.gov.br/barra.js" type="text/javascript"></script>
