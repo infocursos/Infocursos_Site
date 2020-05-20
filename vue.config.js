@@ -1,4 +1,4 @@
 module.exports = {
-  //publicPath: '/infocursos/beta/',
+  publicPath: '/dist/',
   
 }
